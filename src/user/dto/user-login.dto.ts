@@ -1,9 +1,14 @@
-import { IsNotEmpty, IsEmail } from 'class-validator';
+// dto/user-login.dto.ts
+import { IsEmail, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
 export class UserLoginDto {
-  @IsEmail() email: string;
+  @IsEmail()
+  email: string;
 
-  @IsNotEmpty() password: string;
+  @IsNotEmpty()
+  password: string;
 
-  @IsNotEmpty() uniqueCode: string;
+  @IsOptional()
+  @IsString()
+  uniqueCode?: string;          // ← optional now
 }
